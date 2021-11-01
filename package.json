@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "E-commerce site with full features.",
 	"main": "server.js",
+	"type": "module",
 	"scripts": {
 		"start": "node back-end/server",
 		"server": "nodemon back-end/server",
