@@ -4,7 +4,10 @@
 	"description": "E-commerce site with full features.",
 	"main": "server.js",
 	"scripts": {
-		"start": "node back-end/server"
+		"start": "node back-end/server",
+		"server": "nodemon back-end/server",
+		"client": "npm start --prefix front-end",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"repository": {
 		"type": "git",
@@ -18,5 +21,9 @@
 	"homepage": "https://github.com/Bbek-Crestha/MERN-ecommerce#readme",
 	"dependencies": {
 		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"concurrently": "^6.3.0",
+		"nodemon": "^2.0.14"
 	}
 }
