@@ -18,7 +18,7 @@ import Rating from "../Components/Rating";
 import { listProductDetails } from "../Actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
-	const [qty, setQty] = useState(0);
+	const [qty, setQty] = useState(1);
 
 	const dispatch = useDispatch();
 
