@@ -6,9 +6,12 @@ import {
 	addOrderItems,
 	getOrderById,
 	updateOrderToPaid,
+	getMyOrders,
 } from "../controller/orderController.js";
 
 router.route("/").post(protect, addOrderItems);
+
+router.route("/myorders").get(protect, getMyOrders);
 
 router.route("/:id").get(protect, getOrderById);
 
