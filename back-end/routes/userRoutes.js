@@ -1,13 +1,17 @@
 import express from "express";
 const router = express.Router();
-import { protect } from "../middleware/authMiddleware.js";
+import { protect, admin } from "../middleware/authMiddleware.js";
 
 import {
 	authUser,
 	registerUser,
 	getUserProfile,
 	updateUserProfile,
+	getUsers,
+	deleteUser,
 } from "../controller/userController.js";
+
+router.route("/").post(registerUser).get(protect, admin, getUsers);
 
 router.post("/login", authUser);
 
@@ -16,6 +20,6 @@ router
 	.get(protect, getUserProfile)
 	.put(protect, updateUserProfile);
 
-router.post("/", registerUser);
+router.route("/:id").delete(protect, admin, deleteUser);
 
 export default router;
