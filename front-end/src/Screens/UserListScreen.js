@@ -32,6 +32,14 @@ const UserListScreen = ({ history }) => {
 		}
 	};
 
+	const removeAdmin = (currUser) => {
+		if (currUser !== "618b245965757d7c0ecc3e22") {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
 	return (
 		<>
 			<h1>Users</h1>
@@ -66,20 +74,22 @@ const UserListScreen = ({ history }) => {
 										<i className="fas fa-times" style={{ color: "red" }}></i>
 									)}
 								</td>
-								<td>
-									<LinkContainer to={`/admin/user/${user._id}/edit`}>
-										<Button variant="light" className="btn-sm">
-											<i className="fas fa-edit"></i>
+								{removeAdmin(user._id) && (
+									<td>
+										<LinkContainer to={`/admin/user/${user._id}/edit`}>
+											<Button variant="light" className="btn-sm">
+												<i className="fas fa-edit"></i>
+											</Button>
+										</LinkContainer>
+										<Button
+											variant="danger"
+											className="btn-sm"
+											onClick={() => deleteHandler(user._id)}
+										>
+											<i className="fas fa-trash"></i>
 										</Button>
-									</LinkContainer>
-									<Button
-										variant="danger"
-										className="btn-sm"
-										onClick={() => deleteHandler(user._id)}
-									>
-										<i className="fas fa-trash"></i>
-									</Button>
-								</td>
+									</td>
+								)}
 							</tr>
 						))}
 					</tbody>
