@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Meta from "../Components/Meta";
 import {
 	Row,
 	Col,
@@ -39,6 +40,7 @@ const CartScreen = ({ location, match, history }) => {
 
 	return (
 		<Row>
+			<Meta title="Cart" />
 			<Col md={8}>
 				<h1>Shopping Cart</h1>
 				{cartItems.length === 0 ? (

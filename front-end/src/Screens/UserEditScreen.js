@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
+import Meta from "../Components/Meta";
 import FormContainer from "../Components/FormContainer";
 import { getUserDetails, updateUser } from "../Actions/userActions";
 import { USER_UPDATE_RESET } from "../Constants/userConstants";
@@ -62,40 +63,43 @@ const UserEditScreen = ({ history, match }) => {
 				) : error ? (
 					<Message variant="danger">{error}</Message>
 				) : (
-					<Form onSubmit={submitHandler}>
-						<Form.Group controlId="name" className="my-3">
-							<Form.Label>Name</Form.Label>
-							<Form.Control
-								type="name"
-								placeholder="Enter name"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							></Form.Control>
-						</Form.Group>
+					<>
+						<Meta title="User Edit" />
+						<Form onSubmit={submitHandler}>
+							<Form.Group controlId="name" className="my-3">
+								<Form.Label>Name</Form.Label>
+								<Form.Control
+									type="name"
+									placeholder="Enter name"
+									value={name}
+									onChange={(e) => setName(e.target.value)}
+								></Form.Control>
+							</Form.Group>
 
-						<Form.Group controlId="email" className="my-3">
-							<Form.Label>Email Address</Form.Label>
-							<Form.Control
-								type="email"
-								placeholder="Enter email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							></Form.Control>
-						</Form.Group>
+							<Form.Group controlId="email" className="my-3">
+								<Form.Label>Email Address</Form.Label>
+								<Form.Control
+									type="email"
+									placeholder="Enter email"
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
+								></Form.Control>
+							</Form.Group>
 
-						<Form.Group controlId="isAdmin" className="my-3">
-							<Form.Check
-								type="checkbox"
-								label="Is Admin"
-								checked={isAdmin}
-								onChange={(e) => setIsAdmin(e.target.checked)}
-							></Form.Check>
-						</Form.Group>
+							<Form.Group controlId="isAdmin" className="my-3">
+								<Form.Check
+									type="checkbox"
+									label="Is Admin"
+									checked={isAdmin}
+									onChange={(e) => setIsAdmin(e.target.checked)}
+								></Form.Check>
+							</Form.Group>
 
-						<Button type="submit" variant="primary">
-							Update
-						</Button>
-					</Form>
+							<Button type="submit" variant="primary">
+								Update
+							</Button>
+						</Form>
+					</>
 				)}
 			</FormContainer>
 		</>

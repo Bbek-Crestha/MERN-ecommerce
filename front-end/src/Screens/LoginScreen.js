@@ -4,6 +4,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
+import Meta from "../Components/Meta";
 import FormContainer from "../Components/FormContainer";
 import { login } from "../Actions/userActions";
 
@@ -35,6 +36,7 @@ const LoginScreen = ({ history, location }) => {
 			<h1>Sign In</h1>
 			{error && <Message variant="danger">{error}</Message>}
 			{loading && <Loader />}
+			<Meta title="login" />
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId="email">
 					<Form.Label>Email Address</Form.Label>

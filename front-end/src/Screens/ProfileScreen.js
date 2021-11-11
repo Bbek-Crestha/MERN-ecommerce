@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
+import Meta from "../Components/Meta";
 import { getUserDetails, updateUserProfile } from "../Actions/userActions";
 import { listMyOrder } from "../Actions/orderActions";
 
@@ -64,6 +65,7 @@ const ProfileScreen = ({ history, location }) => {
 					</Message>
 				)}
 				{loading && <Loader />}
+				<Meta title="Profile" />
 				<Form onSubmit={submitHandler}>
 					<Form.Group controlId="name">
 						<Form.Label>Name</Form.Label>

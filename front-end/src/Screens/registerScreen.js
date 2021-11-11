@@ -4,6 +4,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
+import Meta from "../Components/Meta";
 import FormContainer from "../Components/FormContainer";
 import { register } from "../Actions/userActions";
 
@@ -43,6 +44,7 @@ const RegisterScreen = ({ history, location }) => {
 			{message && <Message variant="danger">{message}</Message>}
 			{error && <Message variant="danger">{error}</Message>}
 			{loading && <Loader />}
+			<Meta title="Register" />
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId="name">
 					<Form.Label>Name</Form.Label>
